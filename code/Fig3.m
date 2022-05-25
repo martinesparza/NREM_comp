@@ -12,7 +12,7 @@
 % Last edited by: Martin Esparza-Iaizzo
 %
 
-%% Definitions for inset
+%% Definitions
 
 % r = mean firing rate
 % a = adaptation
@@ -90,7 +90,7 @@ end
 
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75);
+set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 15 17]*1.75);
 
 fontSize = 16;
 
@@ -105,7 +105,7 @@ ylim([-1 1])
 xticks([]); xticklabels({''}); 
 xlabel('Time (AU)')
 set(ax,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}','FontName','Cambria')
+ylabel('{\it \xi(t)}','FontName','Arial')
 
 sigma2 = 0.02; % Sigma 2
 [noise1, noise_t1] = OUNoise(theta,sigma2,duration,dt,save_dt,numsignals,8); % Generate noise realization
@@ -118,7 +118,7 @@ xticks([]); xticklabels({''});
 ylabel('{\it \xi(t)}')
 xlabel('Time (AU)')
 set(ax,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}','FontName','Cambria')
+ylabel('{\it \xi(t)}','FontName','Arial')
 
 % Scenarios
 % Up Bistable
@@ -132,7 +132,7 @@ yticks([]); yticklabels({''});
 xlabel('Time (AU)')
 alpha(ax1_1,0)
 set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it            r(t)}','FontName','Cambria')
+ylabel('{\it            r(t)}','FontName','Arial')
 
 ax1_2 = axes('Position',[0.075 0.45 0.171 0.06]);
 ax1_2.PositionConstraint = 'innerposition';
@@ -143,7 +143,7 @@ xticks([]); xticklabels({''});
 yticks([]); yticklabels({''});
 alpha(0)
 set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it\xi(t)}','FontName','Cambria')
+ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Down Bistable
 ax1_1 = axes('Position',[0.075 0.62 0.175 0.15]);
@@ -154,7 +154,7 @@ ylim([-1 1.1])
 xticks([]); xticklabels({''}); 
 yticks([]); yticklabels({''});
 set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it            r(t)}','FontName','Cambria')
+ylabel('{\it            r(t)}','FontName','Arial')
 
 ax1_2 = axes('Position',[0.075 0.62 0.171 0.06]);
 ax1_2.PositionConstraint = 'innerposition';
@@ -164,7 +164,7 @@ ylim([-0.75 0.5])
 xticks([]); xticklabels({''}); 
 yticks([]); yticklabels({''});
 set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it\xi(t)}','FontName','Cambria')
+ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Up Oscillatory
 ax1_1 = axes('Position',[0.075 0.22 0.175 0.15]);
@@ -175,7 +175,7 @@ ylim([-1 1.1])
 xticks([]); xticklabels({''}); 
 yticks([]); yticklabels({''});
 set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it            r(t)}','FontName','Cambria')
+ylabel('{\it            r(t)}','FontName','Arial')
 
 ax1_2 = axes('Position',[0.075 0.22 0.171 0.06]);
 ax1_2.PositionConstraint = 'innerposition';
@@ -185,7 +185,7 @@ ylim([-0.75 0.5])
 xticks([]); xticklabels({''}); 
 yticks([]); yticklabels({''});
 set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it\xi(t)}','FontName','Cambria')
+ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Down Oscillatory
 ax1_1 = axes('Position',[0.075 0.05 0.175 0.15]);
@@ -196,7 +196,7 @@ ylim([-1 1.1])
 xticks([]); xticklabels({''}); 
 yticks([]); yticklabels({''});
 set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it            r(t)}','FontName','Cambria')
+ylabel('{\it            r(t)}','FontName','Arial')
 
 ax1_2 = axes('Position',[0.075 0.05 0.171 0.06]);
 ax1_2.PositionConstraint = 'innerposition';
@@ -207,7 +207,7 @@ xticks([]); xticklabels({''});
 yticks([]); yticklabels({''});
 xlabel('Time (AU)')
 set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it\xi(t)}','FontName','Cambria')
+ylabel('{\it\xi(t)}','FontName','Arial')
 
 
 % Noise
@@ -225,7 +225,7 @@ for i = 1:5
     str = ['{\it\xi(t)}',str];
     xlim([0 175])
     set(ax2_2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-    ylabel(str,'FontName','Cambria')
+    ylabel(str,'FontName','Arial')
 end
 ax2_3 = axes('Position',[0.375 distances(6) 0.225 0.08]);
 ax2_3.PositionConstraint = 'innerposition';
@@ -236,7 +236,7 @@ ylim([-1.25 1.25])
 xlabel('Time (AU)')
 xlim([0 175])
 set(ax2_3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('\xi(t)_{300}','FontName','Cambria')
+ylabel('\xi(t)_{300}','FontName','Arial')
 
 % Stimuli
 % Stimuli 1
@@ -257,7 +257,7 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it \xi(t)}_2','FontName','Arial'); 
 
 % Stimuli 2
 ax3_1 = axes('Position',[0.725 0.59 0.23 0.08]);
@@ -277,7 +277,7 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it \xi(t)}_2','FontName','Arial'); 
 
 % Stimuli 3
 ax3_1 = axes('Position',[0.725 0.49 0.23 0.08]);
@@ -297,7 +297,7 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it \xi(t)}_2','FontName','Arial'); 
 
 % Stimuli 4
 ax3_1 = axes('Position',[0.725 0.275 0.23 0.08]);
@@ -318,7 +318,7 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it \xi(t)}_2','FontName','Arial'); 
 
 % Stimuli 5
 ax3_1 = axes('Position',[0.725 0.175 0.23 0.08]);
@@ -339,7 +339,7 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it\xi(t)}_2','FontName','Arial'); 
 
 % Stimuli 6
 ax3_1 = axes('Position',[0.725 0.075 0.23 0.08]);
@@ -360,10 +360,10 @@ yticks([]); yticklabels({''});
 ylim([-1.5 1.5])
 xlim([0 175])
 set(ax3_2,'FontSize',fontSize-2,'Box','on','LineWidth',1.5,'FontName','Arial')
-ylabel('{\it \xi(t)}_2','FontName','Cambria'); 
+ylabel('{\it \xi(t)}_2','FontName','Arial'); 
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
-% cd '/Users/martinesparzaiaizzo/Desktop/@belen/Figuras_LIMPIAS/METHODS/figures_temp'
-% set(gcf,'Renderer','Painter')
-% exportgraphics(gcf,'fig3_1.pdf','Resolution',300,'BackgroundColor',[.8 .8 .8])
+% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+% set(f,'Renderer','Painter')
+% exportgraphics(gcf,'fig3.pdf','Resolution',300,'BackgroundColor','none')
