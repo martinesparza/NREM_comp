@@ -1,5 +1,8 @@
 %% Figures @NREM_comp
 %
+% Theoretical and Computational Neuroscience (TCN), Centre for Brain and Cognition, 
+% Universitat Pompeu Fabra, Barcelona, Spain. 
+%
 % Figure 2. Extended model and stimulus. 
 %
 % Created: Fri 22 Jan 2021, 14:31
