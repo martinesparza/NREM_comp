@@ -1,5 +1,8 @@
 %% Figures @NREM_comp
 %
+% Theoretical and Computational Neuroscience (TCN), Centre for Brain and Cognition, 
+% Universitat Pompeu Fabra, Barcelona, Spain. 
+%
 % Figure 3. Numerical integration pipeline
 %
 % Created: Mon 1 Feb 2021, 10:46
