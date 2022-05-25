@@ -1,5 +1,8 @@
 %% Figures @NREM_comp
 %
+% Theoretical and Computational Neuroscience (TCN), Centre for Brain and Cognition, 
+% Universitat Pompeu Fabra, Barcelona, Spain. 
+%
 % Figure 1. Computational model and phase plane dynamics
 %
 % Created: Mon 16 Nov 2020, 10:05
