@@ -12,6 +12,10 @@
 % Last edited: Mon 23 May 2022, 17:22
 % Last edited by: Martin Esparza-Iaizzo
 
+%% Add supplementary function path
+
+addpath(genpath('./supple'))
+
 %% Load data
 
 % Point to data location

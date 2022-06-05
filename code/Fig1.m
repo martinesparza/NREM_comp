@@ -11,6 +11,11 @@
 % Last edited: Sun 22 May 2022, 17:15
 % Last edited by: Martin Esparza-Iaizzo
 % 
+
+%% Add supplementary function path
+
+addpath(genpath('./supple'))
+
 %% Generate nullclines
 
 sample_r = 0:0.001:1; % Sample r vector to draw nullclines. 

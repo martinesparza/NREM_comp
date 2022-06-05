@@ -12,6 +12,10 @@
 % Last edited by: Martin Esparza-Iaizzo
 %
 %
+%% Add supplementary function path
+
+addpath(genpath('./supple'))
+
 %% Definitions
 
 % r = mean firing rate
