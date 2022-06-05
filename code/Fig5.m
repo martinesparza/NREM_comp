@@ -15,7 +15,7 @@
 %% Add supplementary function and data path
 
 addpath(genpath('./supple'));
-addpath(genpath('./data'));
+addpath(genpath('./data_no_stimuli'));
 
 %% Load data
 
@@ -96,8 +96,8 @@ set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 % C
 ax3 = axes('Position',[0.15 0.3 0.36 0.25]);
 ax3.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_down_bis,sigma_low.post_down_bis(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_low.avg_down_osc,sigma_low.post_down_osc(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_low.avg_down_bis,sigma_low.post_down_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_low.avg_down_osc,sigma_low.post_down_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.05 0.05])
 xlabel('<\xi>_t')
@@ -110,8 +110,8 @@ set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 % D
 ax4 = axes('Position',[0.575 0.3 0.36 0.25]);
 ax4.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_up_bis,sigma_low.post_up_bis(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_low.avg_up_osc,sigma_low.post_up_osc(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_low.avg_up_bis,sigma_low.post_up_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_low.avg_up_osc,sigma_low.post_up_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.05 0.05])
 xlabel('<\xi>_t')
@@ -144,11 +144,11 @@ clear rho_sigma2_DOWN pval_sigma2_DOWN rho_sigma2_UP pval_sigma2_UP
 [rho_sigma1_UP.osc,pval_sigma1_UP.osc] = corr(sigma_high.avg_up_osc,sigma_high.post_up_osc); % Oscillatory
 
 % Sigma 2 – DOWN
-[rho_sigma2_DOWN.bis,pval_sigma2_DOWN.bis] = corr(sigma_low.avg_down_bis,sigma_low.post_down_bis(:,11)); % Bistable
-[rho_sigma2_DOWN.osc,pval_sigma2_DOWN.osc] = corr(sigma_low.avg_down_osc,sigma_low.post_down_osc(:,11)); % Oscillatory
+[rho_sigma2_DOWN.bis,pval_sigma2_DOWN.bis] = corr(sigma_low.avg_down_bis,sigma_low.post_down_bis); % Bistable
+[rho_sigma2_DOWN.osc,pval_sigma2_DOWN.osc] = corr(sigma_low.avg_down_osc,sigma_low.post_down_osc); % Oscillatory
 
 % Sigma 2 - UP
-[rho_sigma2_UP.bis,pval_sigma2_UP.bis] = corr(sigma_low.avg_up_bis,sigma_low.post_up_bis(:,11)); % Bistable
-[rho_sigma2_UP.osc,pval_sigma2_UP.osc] = corr(sigma_low.avg_up_osc,sigma_low.post_up_osc(:,11)); % Oscillatory
+[rho_sigma2_UP.bis,pval_sigma2_UP.bis] = corr(sigma_low.avg_up_bis,sigma_low.post_up_bis); % Bistable
+[rho_sigma2_UP.osc,pval_sigma2_UP.osc] = corr(sigma_low.avg_up_osc,sigma_low.post_up_osc); % Oscillatory
 
 
