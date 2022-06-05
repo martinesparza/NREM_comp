@@ -12,15 +12,14 @@
 % Last edited: Mon 23 May 2022, 17:22
 % Last edited by: Martin Esparza-Iaizzo
 
-%% Add supplementary function path
+%% Add supplementary function and data path
 
-addpath(genpath('./supple'))
+addpath(genpath('./supple'));
+addpath(genpath('./data'));
 
 %% Load data
 
-% Point to data location
-addpath(genpath('/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/final_data_00182/UP'))
-% Load data
+% Load sigma = 0.02 data. UP
 tmp = load('avg_up2_osc.mat');
 sigma_low.avg_up_osc = tmp.avg_up_osc;
 tmp = load('avg_up2_bis.mat');
@@ -30,8 +29,7 @@ sigma_low.post_up_bis = tmp.post_up_bis;
 tmp = load('post_up2_osc.mat');
 sigma_low.post_up_osc = tmp.post_up_osc;
 
-
-addpath(genpath('/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/final_data_00182/DOWN'))
+% Load sigma = 0.02 data. DOWN
 tmp = load('avg_down2_osc.mat');
 sigma_low.avg_down_osc = tmp.avg_down_osc;
 tmp = load('avg_down2_bis.mat');
@@ -41,7 +39,7 @@ sigma_low.post_down_bis = tmp.post_down_bis;
 tmp = load('post_down2_osc.mat');
 sigma_low.post_down_osc = tmp.post_down_osc;
 
-addpath(genpath('/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/sigma = 0.07/0.25/UP - 0.25'))
+% Load sigma = 0.25 data. UP
 tmp = load('avg_up_osc.mat');
 sigma_high.avg_up_osc = tmp.avg_up_osc;
 tmp = load('avg_up_bis.mat');
@@ -51,7 +49,7 @@ sigma_high.post_up_bis = tmp.post_up_bis;
 tmp = load('post_up_osc.mat');
 sigma_high.post_up_osc = tmp.post_up_osc;
 
-addpath(genpath('/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/sigma = 0.07/0.25/DOWN - 0.25'))
+% Load sigma = 0.25 data. DOWN
 tmp = load('avg_down_osc.mat');
 sigma_high.avg_down_osc = tmp.avg_down_osc;
 tmp = load('avg_down_bis.mat');
