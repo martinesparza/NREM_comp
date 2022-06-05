@@ -65,13 +65,14 @@ f = figure;
 mp = get(0, 'MonitorPositions');
 set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75);
 fontSize = 16;
-MarkerSize = 10;
+MarkerSize = 12;
+LineW = 1.0;
 
 % A
-ax1 = axes('Position',[0.15 0.67 0.36 0.25]);
+ax1 = axes('Position',[0.1 0.67 0.4 0.22]);
 ax1.PositionConstraint = 'innerposition';
-plot(sigma_high.avg_down_bis,sigma_high.post_down_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_high.avg_down_osc,sigma_high.post_down_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_high.avg_down_bis,sigma_high.post_down_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_high.avg_down_osc,sigma_high.post_down_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.5 0.5])
 xlabel('<\xi>_t')
@@ -81,10 +82,10 @@ yticks([1 10 100 1000 10000])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 % B
-ax2 = axes('Position',[0.575 0.67 0.36 0.25]);
+ax2 = axes('Position',[0.575 0.67 0.4 0.22]);
 ax2.PositionConstraint = 'innerposition';
-plot(sigma_high.avg_up_bis,sigma_high.post_up_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_high.avg_up_osc,sigma_high.post_up_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_high.avg_up_bis,sigma_high.post_up_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_high.avg_up_osc,sigma_high.post_up_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.5 0.5])
 xlabel('<\xi>_t')
@@ -94,10 +95,10 @@ yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 % C
-ax3 = axes('Position',[0.15 0.3 0.36 0.25]);
+ax3 = axes('Position',[0.1 0.325 0.4 0.22]);
 ax3.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_down_bis,sigma_low.post_down_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_low.avg_down_osc,sigma_low.post_down_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_low.avg_down_bis,sigma_low.post_down_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_low.avg_down_osc,sigma_low.post_down_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.05 0.05])
 xlabel('<\xi>_t')
@@ -108,10 +109,10 @@ set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 
 
 % D
-ax4 = axes('Position',[0.575 0.3 0.36 0.25]);
+ax4 = axes('Position',[0.575 0.325 0.4 0.22]);
 ax4.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_up_bis,sigma_low.post_up_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
-plot(sigma_low.avg_up_osc,sigma_low.post_up_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
+plot(sigma_low.avg_up_bis,sigma_low.post_up_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
+plot(sigma_low.avg_up_osc,sigma_low.post_up_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
 xlim([-0.05 0.05])
 xlabel('<\xi>_t')

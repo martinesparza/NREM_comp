@@ -109,49 +109,54 @@ f = figure;
 mp = get(0, 'MonitorPositions');
 set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75);
 fontSize = 16;
-LineW = 2.5; 
+MarkerSize = 12;
+LineW = 1.0;
 
-ax1 = axes('Position',[0.1 0.7 0.375 0.25]);
+ax1 = axes('Position',[0.1 0.67 0.4 0.22]);
 ax1.PositionConstraint = 'innerposition';
-plot(sigma_high.avg_down_bis,abs(sigma_high.sens_bis_down),'o','LineWidth',1.0,'MarkerSize',5,'Color','#027EDC'); hold on;
-plot(sigma_high.avg_down_osc,abs(sigma_high.sens_osc_down),'o','LineWidth',1.0,'MarkerSize',5,'Color','#FF44C8');
+plot(sigma_high.avg_down_bis,abs(sigma_high.sens_bis_down),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(sigma_high.avg_down_osc,abs(sigma_high.sens_osc_down),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity_{DOWN}');
 xlim([-0.8 0.8])
 ylim([1 10e5])
-set(ax1,'FontSize',9,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 
-ax2 = axes('Position',[0.575 0.7 0.375 0.25]);
+ax2 = axes('Position',[0.575 0.67 0.4 0.22]);
 ax2.PositionConstraint = 'innerposition';
-plot(sigma_high.avg_up_bis,abs(sigma_high.sens_bis_up),'o','LineWidth',1.0,'MarkerSize',5,'Color','#027EDC'); hold on;
-plot(sigma_high.avg_up_osc,abs(sigma_high.sens_osc_up),'o','LineWidth',1.0,'MarkerSize',5,'Color','#FF44C8');
+plot(sigma_high.avg_up_bis,abs(sigma_high.sens_bis_up),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(sigma_high.avg_up_osc,abs(sigma_high.sens_osc_up),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity_{UP}');
 xlim([-0.8 0.8])
+yticks([1 100 10000 1000000])
+yticklabels({''})
 ylim([1 10e5])
-set(ax2,'FontSize',9,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 
-ax1 = axes('Position',[0.1 0.27 0.375 0.25]);
+ax1 = axes('Position',[0.1 0.325 0.4 0.22]);
 ax1.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_down_bis,abs(sigma_low.sens_bis_down),'o','LineWidth',1.0,'MarkerSize',5,'Color','#027EDC'); hold on;
-plot(sigma_low.avg_down_osc,abs(sigma_low.sens_osc_down),'o','LineWidth',1.0,'MarkerSize',5,'Color','#FF44C8');
+plot(sigma_low.avg_down_bis,abs(sigma_low.sens_bis_down),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(sigma_low.avg_down_osc,abs(sigma_low.sens_osc_down),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity_{DOWN}');
 xlim([-0.08 0.08])
 ylim([1 10e5])
-set(ax1,'FontSize',9,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 
-ax2 = axes('Position',[0.575 0.27 0.375 0.25]);
+ax2 = axes('Position',[0.575 0.325 0.4 0.22]);
 ax2.PositionConstraint = 'innerposition';
-plot(sigma_low.avg_up_bis,abs(sigma_low.sens_bis_up),'o','LineWidth',1.0,'MarkerSize',5,'Color','#027EDC'); hold on;
-plot(sigma_low.avg_up_osc,abs(sigma_low.sens_osc_up),'o','LineWidth',1.0,'MarkerSize',5,'Color','#FF44C8');
+plot(sigma_low.avg_up_bis,abs(sigma_low.sens_bis_up),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(sigma_low.avg_up_osc,abs(sigma_low.sens_osc_up),'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity_{UP}');
 xlim([-0.08 0.08])
+yticks([1 100 10000 1000000])
 ylim([1 10e5])
-set(ax2,'FontSize',9,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+yticklabels({''})
+set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 %% EXPORT
-% 
-% cd '/Users/martinesparzaiaizzo/Desktop/@belen/Figuras_LIMPIAS/RESULTS'
-% exportgraphics(gcf,'fig4.eps','Resolution',300,'BackgroundColor','none')
 
+cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+set(f,'Renderer','Painter')
+exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
