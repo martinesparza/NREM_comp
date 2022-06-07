@@ -103,6 +103,8 @@ sigma_low.avg_down_bis = sigma_low.avg_down_bis(idx_bis_down);
 [sigma_low.p1_bis_up, sigma_low.p2_bis_up, sigma_low.p3_bis_up, sigma_low.p4_bis_up, sigma_low.sens_bis_up] = sigmoidRegression(clean_bis_up,'up');
 [sigma_low.p1_osc_down, sigma_low.p2_osc_down, sigma_low.p3_osc_down, sigma_low.p4_osc_down, sigma_low.sens_osc_down] = sigmoidRegression(clean_osc_down,'dw');
 [sigma_low.p1_bis_down, sigma_low.p2_bis_down, sigma_low.p3_bis_down, sigma_low.p4_bis_down, sigma_low.sens_bis_down] = sigmoidRegression(clean_bis_down,'dw');
+[nan_fittings,~] = find(abs(sigma_low.sens_osc_up) < 20);
+sigma_low.sens_osc_up(nan_fittings) = NaN;
 
 %% Plotting
 f = figure; 
