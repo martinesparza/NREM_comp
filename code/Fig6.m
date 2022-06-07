@@ -60,14 +60,15 @@ end
 %% GENERATE SPIKE TRAIN
 
 % Time stamps for UPs and DOWNs
-start_1_up = 325; 
+start_1_up = 350; 
 start_2_up = 200;
 
 start_1_down = 575;
-start_2_down = 400;
+start_2_down = 430;
 
-duration_s = 40; % stimuli duration
-freqs = [10:10:50]; % Incremental frequencies
+% duration_s = 40; % stimuli duration
+duration_s = 10; % stimuli duration
+freqs = [10:20:100]; % Incremental frequencies
 spike_train = generateStimuli(duration_s,dt,1,freqs);
 
 stimuli_up = zeros(1,duration/dt+1); % Up stimuli
