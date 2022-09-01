@@ -125,7 +125,7 @@ ylabel('{\it \xi(t)}','FontName','Arial')
 
 % Scenarios
 % Up Bistable
-ax1_1 = axes('Position',[0.075 0.45 0.175 0.15]);
+ax1_1 = axes('Position',[0.075 0.45 0.175 0.125]);
 ax1_1.PositionConstraint = 'innerposition';
 plot(t,r1,'LineWidth',2.5,'Color','#027EDC'); hold on; 
 xlim([0 175])
@@ -149,7 +149,7 @@ set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Down Bistable
-ax1_1 = axes('Position',[0.075 0.62 0.175 0.15]);
+ax1_1 = axes('Position',[0.075 0.62 0.175 0.125]);
 ax1_1.PositionConstraint = 'innerposition';
 plot(t,r1,'LineWidth',2.5,'Color','#027EDC'); hold on; 
 xlim([100 300])
@@ -170,7 +170,7 @@ set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Up Oscillatory
-ax1_1 = axes('Position',[0.075 0.22 0.175 0.15]);
+ax1_1 = axes('Position',[0.075 0.22 0.175 0.125]);
 ax1_1.PositionConstraint = 'innerposition';
 plot(t1,r1,'LineWidth',2.5,'Color','#FF44C8'); hold on; 
 xlim([200 375])
@@ -191,7 +191,7 @@ set(ax1_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 ylabel('{\it\xi(t)}','FontName','Arial')
 
 % Down Oscillatory
-ax1_1 = axes('Position',[0.075 0.05 0.175 0.15]);
+ax1_1 = axes('Position',[0.075 0.05 0.175 0.125]);
 ax1_1.PositionConstraint = 'innerposition';
 plot(t1,r1,'LineWidth',2.5,'Color','#FF44C8'); hold on; 
 xlim([50 300])
@@ -367,6 +367,7 @@ ylabel('{\it \xi(t)}_2','FontName','Arial');
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
-% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-% set(f,'Renderer','Painter')
-% exportgraphics(gcf,'fig3.pdf','Resolution',300,'BackgroundColor','none')
+cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+set(f,'Renderer','Painter')
+exportgraphics(gcf,'fig3.pdf','Resolution',300,'BackgroundColor','none')
+close all

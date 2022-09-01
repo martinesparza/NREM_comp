@@ -146,7 +146,7 @@ set(ax2_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
-
-cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'fig2.pdf','Resolution',300,'BackgroundColor','w')
+% 
+% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+% exportgraphics(gcf,'fig2.pdf','Resolution',300,'BackgroundColor','w')
 

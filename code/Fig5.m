@@ -69,7 +69,7 @@ MarkerSize = 12;
 LineW = 1.0;
 
 % A
-ax1 = axes('Position',[0.1 0.67 0.4 0.22]);
+ax1 = axes('Position',[0.1 0.67 0.41 0.22]);
 ax1.PositionConstraint = 'innerposition';
 plot(sigma_high.avg_down_bis,sigma_high.post_down_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_high.avg_down_osc,sigma_high.post_down_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
@@ -82,7 +82,7 @@ yticks([1 10 100 1000 10000])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 % B
-ax2 = axes('Position',[0.575 0.67 0.4 0.22]);
+ax2 = axes('Position',[0.575 0.67 0.41 0.22]);
 ax2.PositionConstraint = 'innerposition';
 plot(sigma_high.avg_up_bis,sigma_high.post_up_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_high.avg_up_osc,sigma_high.post_up_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
@@ -95,7 +95,7 @@ yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 % C
-ax3 = axes('Position',[0.1 0.325 0.4 0.22]);
+ax3 = axes('Position',[0.1 0.325 0.41 0.22]);
 ax3.PositionConstraint = 'innerposition';
 plot(sigma_low.avg_down_bis,sigma_low.post_down_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_low.avg_down_osc,sigma_low.post_down_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
@@ -109,7 +109,7 @@ set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 
 
 % D
-ax4 = axes('Position',[0.575 0.325 0.4 0.22]);
+ax4 = axes('Position',[0.575 0.325 0.41 0.22]);
 ax4.PositionConstraint = 'innerposition';
 plot(sigma_low.avg_up_bis,sigma_low.post_up_bis,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_low.avg_up_osc,sigma_low.post_up_osc,'o','LineWidth',LineW,'MarkerSize',MarkerSize,'Color','#FF44C8')
@@ -124,9 +124,10 @@ set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
-% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-% set(f,'Renderer','Painter')
-% exportgraphics(gcf,'fig5.pdf','Resolution',300,'BackgroundColor','none')
+cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+set(f,'Renderer','Painter')
+exportgraphics(gcf,'fig5.pdf','Resolution',300,'BackgroundColor','none')
+close all
 
 
 %% Stats –– Pearson correlation
@@ -141,15 +142,15 @@ clear rho_sigma2_DOWN pval_sigma2_DOWN rho_sigma2_UP pval_sigma2_UP
 [rho_sigma1_DOWN.osc,pval_sigma1_DOWN.osc] = corr(sigma_high.avg_down_osc,sigma_high.post_down_osc); % Oscillatory
 
 % Sigma 1 - UP
-[rho_sigma1_UP.bis,pval_sigma1_UP.bis] = corr(sigma_high.avg_up_bis,sigma_high.post_up_bis); % Bistable
-[rho_sigma1_UP.osc,pval_sigma1_UP.osc] = corr(sigma_high.avg_up_osc,sigma_high.post_up_osc); % Oscillatory
+[rho_sigma1_UP.bis,pval_sigma1_UP.bis] = corr(sigma_high.avg_up_bis,log(sigma_high.post_up_bis)); % Bistable
+[rho_sigma1_UP.osc,pval_sigma1_UP.osc] = corr(sigma_high.avg_up_osc,log(sigma_high.post_up_osc)); % Oscillatory
 
 % Sigma 2 – DOWN
 [rho_sigma2_DOWN.bis,pval_sigma2_DOWN.bis] = corr(sigma_low.avg_down_bis,sigma_low.post_down_bis); % Bistable
 [rho_sigma2_DOWN.osc,pval_sigma2_DOWN.osc] = corr(sigma_low.avg_down_osc,sigma_low.post_down_osc); % Oscillatory
 
 % Sigma 2 - UP
-[rho_sigma2_UP.bis,pval_sigma2_UP.bis] = corr(sigma_low.avg_up_bis,sigma_low.post_up_bis); % Bistable
-[rho_sigma2_UP.osc,pval_sigma2_UP.osc] = corr(sigma_low.avg_up_osc,sigma_low.post_up_osc); % Oscillatory
+[rho_sigma2_UP.bis,pval_sigma2_UP.bis] = corr(sigma_low.avg_up_bis,log(sigma_low.post_up_bis)); % Bistable
+[rho_sigma2_UP.osc,pval_sigma2_UP.osc] = corr(sigma_low.avg_up_osc,log(sigma_low.post_up_osc)); % Oscillatory
 
 
