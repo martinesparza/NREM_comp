@@ -10,8 +10,7 @@
 % 
 % Last edited: Sun 22 May 2022, 17:19
 % Last edited by: Martin Esparza-Iaizzo
-%
-% Im back broskis. 
+
 %% Add supplementary function path
 
 addpath(genpath('./supple'))
@@ -108,7 +107,6 @@ ylim([0 1]);
 yticks([0 1]); yticklabels({'0','1'});
 xticks([0 10]); xticklabels({'0','10'})
 xlabel('');
-xlabel('Time (AU)')
 set(ax2_1,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 ylabel('\its(t)','FontName','Arial')
 
@@ -125,7 +123,7 @@ set(ax2_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 freqs = [50];
 [spike_train,spikeMat,tVec] = generateStimuli(duration_s,dt,1,freqs);
 
-ax2_1 = axes('Position',[0.1 0.1 0.85 0.075]);
+ax2_1 = axes('Position',[0.1 0.13 0.85 0.075]);
 ax2_1.PositionConstraint = 'innerposition';
 plot(tVec,spike_train(2,:),'Color','#DAA520','LineWidth',1.5); hold on;
 ylim([0 1]);
@@ -136,7 +134,7 @@ xlabel('Time (AU)')
 set(ax2_1,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 ylabel('\its(t)','FontName','Arial')
 
-ax2_2 = axes('Position',[0.1 0.175 0.85 0.07]);
+ax2_2 = axes('Position',[0.1 0.205 0.85 0.07]);
 ax2_2.PositionConstraint = 'innerposition';
 ax2_2.XAxis.Visible = 'off';
 plotRaster(spikeMat, tVec,1.5,'#DAA520');
@@ -148,7 +146,7 @@ set(ax2_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
-% 
-% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-% exportgraphics(gcf,'fig2.pdf','Resolution',300,'BackgroundColor','w')
+
+cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
+exportgraphics(gcf,'fig2.pdf','Resolution',300,'BackgroundColor','w')
 
