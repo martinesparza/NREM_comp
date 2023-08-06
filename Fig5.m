@@ -110,7 +110,7 @@ ylabel('Duration (AU)')
 yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax1_1 = axes('Position',[0.43 0.67 0.1 0.25]);
+ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
 h = histogram(log10(sigma_high.post_down_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
@@ -118,10 +118,8 @@ h.Orientation = 'horizontal';
 h = histogram(log10(sigma_high.post_down_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-yticklabels({''})
 ylim([0 4])
-set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
-
+axis off
 
 % B
 ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
@@ -135,7 +133,7 @@ xlabel('<\xi>_t')
 yticklabels({''})
 yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax2_1 = axes('Position',[0.89 0.67 0.1 0.25]);
+ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
 h = histogram(log10(sigma_high.post_up_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
@@ -143,9 +141,8 @@ h.Orientation = 'horizontal';
 h = histogram(log10(sigma_high.post_up_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-yticklabels({''})
 ylim([0 4])
-set(ax2_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
+axis off
 
 % C
 ax3 = axes('Position',[0.1 0.3 0.32 0.25]);
@@ -159,7 +156,7 @@ ylabel('Duration (AU)')
 yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax3_1 = axes('Position',[0.43 0.3 0.1 0.25]);
+ax3_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax3_1.PositionConstraint = 'innerposition';
 h = histogram(log10(sigma_low.post_down_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
@@ -167,10 +164,8 @@ h.Orientation = 'horizontal';
 h = histogram(log10(sigma_low.post_down_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-yticklabels({''})
 ylim([0 4])
-set(ax3_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
-
+axis off
 
 % D
 ax4 = axes('Position',[0.56 0.3 0.32 0.25]);
@@ -183,7 +178,7 @@ xlabel('<\xi>_t')
 yticklabels({''})
 yticks([1 10 100 1000 10000])
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax4_1 = axes('Position',[0.89 0.3 0.1 0.25]);
+ax4_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax4_1.PositionConstraint = 'innerposition';
 h = histogram(log10(sigma_low.post_up_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
@@ -191,9 +186,8 @@ h.Orientation = 'horizontal';
 h = histogram(log10(sigma_low.post_up_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-yticklabels({''})
 ylim([0 4])
-set(ax4_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
+axis off
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
