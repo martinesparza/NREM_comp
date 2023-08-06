@@ -49,15 +49,6 @@ xlabel('<\xi>_t'); ylabel('Sensitivity_{DOWN}');
 xlim([-0.8 0.8])
 ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax1_1 = axes('Position', get(ax1,'Position'), ...
-    'XAxisLocation','top', ...
-    'Color','none', ...
-    'XColor','k');
-ax1_1.YAxis.Visible = 'off';
-ax1_1.XLim = [-1.6 1.6];
-ax1_1.XTick = [-1 0 1];
-set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-
 
 ax2 = axes('Position',[0.575 0.7 0.375 0.25]);
 ax2.PositionConstraint = 'innerposition';
@@ -67,22 +58,14 @@ xlabel('<\xi>_t'); ylabel('Sensitivity_{UP}');
 xlim([-0.8 0.8])
 ylim([1 10e5])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax1_1 = axes('Position', get(ax2,'Position'), ...
-    'XAxisLocation','top', ...
-    'Color','none', ...
-    'XColor','k');
-ax1_1.YAxis.Visible = 'off';
-ax1_1.XLim = [-1.6 1.6];
-ax1_1.XTick = [-1 0 1];
-set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
-tmp = NaN(size(sens_osc_down,1),2);
-tmp(1:length(sens_bis_down),1) = log(abs(sens_bis_down)); tmp(1:length(sens_osc_down),2) = log(abs(sens_osc_down)); 
-sigma_high.p_down = vartestn(tmp,'TestType','LeveneAbsolute');
-
-tmp = NaN(size(sens_osc_up,1),2);
-tmp(1:length(sens_bis_up),1) = log(abs(sens_bis_up)); tmp(1:length(sens_osc_up),2) = log(abs(sens_osc_up)); 
-sigma_high.p_up = vartestn(tmp,'TestType','LeveneAbsolute');
+% tmp = NaN(size(sens_osc_down,1),2);
+% tmp(1:length(sens_bis_down),1) = log(abs(sens_bis_down)); tmp(1:length(sens_osc_down),2) = log(abs(sens_osc_down)); 
+% sigma_high.p_down = vartestn(tmp,'TestType','LeveneAbsolute');
+% 
+% tmp = NaN(size(sens_osc_up,1),2);
+% tmp(1:length(sens_bis_up),1) = log(abs(sens_bis_up)); tmp(1:length(sens_osc_up),2) = log(abs(sens_osc_up)); 
+% sigma_high.p_up = vartestn(tmp,'TestType','LeveneAbsolute');
 
 
 %% Sigma = 0.02
@@ -128,14 +111,6 @@ xlabel('<\xi>_t'); ylabel('Sensitivity_{DOWN}');
 xlim([-0.08 0.08])
 ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax1_1 = axes('Position', get(ax1,'Position'), ...
-    'XAxisLocation','top', ...
-    'Color','none', ...
-    'XColor','k');
-ax1_1.YAxis.Visible = 'off';
-ax1_1.XLim = [-.16 .16];
-ax1_1.XTick = [-.1 0 .1];
-set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 
 
 ax2 = axes('Position',[0.575 0.27 0.375 0.25]);
@@ -146,14 +121,7 @@ xlabel('<\xi>_t'); ylabel('Sensitivity_{UP}');
 xlim([-0.08 0.08])
 ylim([1 10e5])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-ax1_1 = axes('Position', get(ax2,'Position'), ...
-    'XAxisLocation','top', ...
-    'Color','none', ...
-    'XColor','k');
-ax1_1.YAxis.Visible = 'off';
-ax1_1.XLim = [-.16 .16];
-ax1_1.XTick = [-.1 0 .1];
-set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+
 
 sigma_low.p_down = vartestn([log(abs(sens_bis_down)), log(abs(sens_osc_down))],'TestType','LeveneAbsolute');
 sigma_low.p_up = vartestn([log(abs(sens_bis_up)), log(abs(sens_osc_up))],'TestType','LeveneAbsolute');
