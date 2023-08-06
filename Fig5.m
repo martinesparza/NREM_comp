@@ -12,6 +12,39 @@
 % Last edited: Mon 23 May 2022, 17:22
 % Last edited by: Martin Esparza-Iaizzo
 
+%% New data load
+
+% sigma high
+cd '/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/variables/sigma = 0.25'
+files = dir('*.mat');
+for i=1:length(files)
+    load(files(i).name);
+end
+
+sigma_high.avg_up_osc = avg_up_osc;
+sigma_high.avg_up_bis = avg_up_bis;
+sigma_high.post_up_bis = post_up_bis(:,11);
+sigma_high.post_up_osc = post_up_osc(:,11);
+sigma_high.avg_down_osc = avg_down_osc;
+sigma_high.avg_down_bis = avg_down_bis;
+sigma_high.post_down_bis = post_down_bis(:,11);
+sigma_high.post_down_osc = post_down_osc(:,11);
+
+% sigma low
+cd '/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/Marvin/variables/sigma = 0.0182'
+files = dir('*.mat');
+for i=1:length(files)
+    load(files(i).name);
+end
+
+sigma_low.avg_up_osc = avg_up_osc;
+sigma_low.avg_up_bis = avg_up_bis;
+sigma_low.post_up_bis = post_up_bis;
+sigma_low.post_up_osc = post_up_osc;
+sigma_low.avg_down_osc = avg_down_osc;
+sigma_low.avg_down_bis = avg_down_bis;
+sigma_low.post_down_bis = post_down_bis;
+sigma_low.post_down_osc = post_down_osc;
 %% Load data
 
 % Point to data location
@@ -66,64 +99,107 @@ fontSize = 16;
 MarkerSize = 10;
 
 % A
-ax1 = axes('Position',[0.15 0.67 0.36 0.25]);
+ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(sigma_high.avg_down_bis,sigma_high.post_down_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_high.avg_down_osc,sigma_high.post_down_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
-xlim([-0.5 0.5])
+xlim([-0.8 0.8])
 xlabel('<\xi>_t')
-ylabel('Down duration (AU)')
+ylabel('Duration (AU)')
 yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+ax1_1 = axes('Position',[0.43 0.67 0.1 0.25]);
+ax1_1.PositionConstraint = 'innerposition';
+h = histogram(log10(sigma_high.post_down_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
+h.Orientation = 'horizontal';
+h = histogram(log10(sigma_high.post_down_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
+h.Orientation = 'horizontal';
+yticklabels({''})
+ylim([0 4])
+set(ax1_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
+
 
 % B
-ax2 = axes('Position',[0.575 0.67 0.36 0.25]);
+ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
 plot(sigma_high.avg_up_bis,sigma_high.post_up_bis,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_high.avg_up_osc,sigma_high.post_up_osc,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
-xlim([-0.5 0.5])
+xlim([-0.8 0.8])
 xlabel('<\xi>_t')
-ylabel('Up Duration (AU)')
+%ylabel('Up Duration (AU)')
 yticklabels({''})
 yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+ax2_1 = axes('Position',[0.89 0.67 0.1 0.25]);
+ax2_1.PositionConstraint = 'innerposition';
+h = histogram(log10(sigma_high.post_up_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
+h.Orientation = 'horizontal';
+h = histogram(log10(sigma_high.post_up_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
+h.Orientation = 'horizontal';
+yticklabels({''})
+ylim([0 4])
+set(ax2_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
 
 % C
-ax3 = axes('Position',[0.15 0.3 0.36 0.25]);
+ax3 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax3.PositionConstraint = 'innerposition';
 plot(sigma_low.avg_down_bis,sigma_low.post_down_bis(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_low.avg_down_osc,sigma_low.post_down_osc(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
-xlim([-0.05 0.05])
+xlim([-0.08 0.08])
 xlabel('<\xi>_t')
-ylabel('Down duration (AU)')
+ylabel('Duration (AU)')
 yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
+ax3_1 = axes('Position',[0.43 0.3 0.1 0.25]);
+ax3_1.PositionConstraint = 'innerposition';
+h = histogram(log10(sigma_low.post_down_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
+h.Orientation = 'horizontal';
+h = histogram(log10(sigma_low.post_down_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
+h.Orientation = 'horizontal';
+yticklabels({''})
+ylim([0 4])
+set(ax3_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
 
 
 % D
-ax4 = axes('Position',[0.575 0.3 0.36 0.25]);
+ax4 = axes('Position',[0.56 0.3 0.32 0.25]);
 ax4.PositionConstraint = 'innerposition';
 plot(sigma_low.avg_up_bis,sigma_low.post_up_bis(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on; 
 plot(sigma_low.avg_up_osc,sigma_low.post_up_osc(:,11),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8')
 ylim([1 10000])
-xlim([-0.05 0.05])
+xlim([-0.08 0.08])
 xlabel('<\xi>_t')
-ylabel('Up Duration (AU)')
 yticklabels({''})
 yticks([1 10 100 1000 10000])
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
-
+ax4_1 = axes('Position',[0.89 0.3 0.1 0.25]);
+ax4_1.PositionConstraint = 'innerposition';
+h = histogram(log10(sigma_low.post_up_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
+h.Orientation = 'horizontal';
+h = histogram(log10(sigma_low.post_up_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+    'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
+h.Orientation = 'horizontal';
+yticklabels({''})
+ylim([0 4])
+set(ax4_1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','ytick',[])
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
-% cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-% set(f,'Renderer','Painter')
-% exportgraphics(gcf,'fig5.pdf','Resolution',300,'BackgroundColor','none')
+cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
+set(f,'Renderer','Painter')
+exportgraphics(gcf,'fig5.pdf','Resolution',300,'BackgroundColor','none')
 
 
 %% Stats –– Pearson correlation
