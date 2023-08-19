@@ -22,7 +22,7 @@ function [ X,T ] = OUNoiseWindow(theta,sigma,duration,dt,save_dt,numsignals,init
 
 
 %%
-% rng(seed,'twister')
+rng(seed)
 simtimevector = 0:dt:duration;
 SimTimeLength = length(simtimevector);
 randnums = randn(numsignals,SimTimeLength);

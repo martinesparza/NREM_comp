@@ -79,7 +79,7 @@ new_noise_down = noise_down(1:start_down/dt);
 %% New simulations - UP
 
 post_up = zeros(1, 21);
-seed = 7; %2, 6
+seed = 4; %2
 for freq = 1:21
     fprintf('Current freq: %i\n', freq)
         
