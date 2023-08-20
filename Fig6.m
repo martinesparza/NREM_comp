@@ -98,7 +98,7 @@ for freq = 1:21
         [pre,post_stimuli] = durationMeasurement(r_s',start_up/dt, 'up');
         post_up(freq) = post_stimuli*dt;
         
-        if freq == 5
+        if freq == 3
             r_up_neg50 = r_s;
             stim_up_neg50 = stimuli;
         elseif freq == 15
@@ -175,7 +175,7 @@ for freq = 1:21
         if freq == 5
             r_down_neg50 = r_s;
             stim_down_neg50 = stimuli;
-        elseif freq == 15
+        elseif freq == 17
             r_down_50 = r_s;
             stim_down_50 = stimuli;
         end
@@ -283,7 +283,7 @@ plot([-100:0.1:100],fit_up, 'Color', 'k', 'LineWidth', 2)
 ylim([0 25])
 ylabel('Duration (AU)')
 xlabel('Frequency (Hz)')
-title(sprintf('Sensibility: %.3f', sens_up))
+title(sprintf('Sensitivity: %.3f', sens_up))
 set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 %B1
@@ -336,7 +336,7 @@ ylim([0 25])
 %yticklabels({'0','5','10','15','20'})
 ylabel('Duration (AU)')
 xlabel('Frequency (Hz)')
-title(sprintf('Sensibility: %.3f', sens_down))
+title(sprintf('Sensitivity: %.3f', sens_down))
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 %% Plotting
@@ -345,9 +345,9 @@ set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 
-% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-% set(f,'Renderer','Painter')
-% exportgraphics(gcf,'fig6.pdf','Resolution',300,'BackgroundColor','none')
+str = sprintf('/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures/fig6.pdf');
+set(f,'Renderer','Painter')
+exportgraphics(gcf,str,'Resolution',300,'BackgroundColor','none')
 % 
 
 

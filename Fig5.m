@@ -94,7 +94,7 @@ sigma_high.post_down_osc = tmp.post_down_osc;
 
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75);
+set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75);
 fontSize = 16;
 MarkerSize = 10;
 
@@ -130,7 +130,7 @@ ylim([1 10000])
 xlim([-0.8 0.8])
 xlabel('<\xi>_t')
 %ylabel('Up Duration (AU)')
-yticklabels({''})
+yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
@@ -175,7 +175,7 @@ plot(sigma_low.avg_up_osc,sigma_low.post_up_osc(:,11),'o','LineWidth',1.0,'Marke
 ylim([1 10000])
 xlim([-0.08 0.08])
 xlabel('<\xi>_t')
-yticklabels({''})
+yticklabels({'10^0','','10^2','','10^4'})
 yticks([1 10 100 1000 10000])
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax4_1 = axes('Position',[0.88 0.3 0.1 0.25]);

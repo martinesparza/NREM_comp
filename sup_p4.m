@@ -43,41 +43,41 @@ MarkerSize = 10;
 
 ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(avg_down_bis,abs(sens_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(avg_down_osc,abs(sens_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(avg_down_bis,abs(p4_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(avg_down_osc,abs(p4_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity');
 xlim([-0.8 0.8])
-ylim([1 10e5])
+ylim([1e0 1e2])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_bis_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_osc_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 6])
+ylim([0 2])
 axis off
 
 ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(avg_up_bis,abs(sens_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(avg_up_osc,abs(sens_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(avg_up_bis,abs(p4_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(avg_up_osc,abs(p4_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t');
 xlim([-0.8 0.8])
-ylim([1 10e5])
+ylim([1e0 1e2])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_bis_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_osc_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 6])
+ylim([0 2])
 axis off
 % tmp = NaN(size(sens_osc_down,1),2);
 % tmp(1:length(sens_bis_down),1) = log(abs(sens_bis_down)); tmp(1:length(sens_osc_down),2) = log(abs(sens_osc_down)); 
@@ -122,43 +122,44 @@ avg_down_bis = avg_down_bis(idx_bis_down);
 [p1_bis_down, p2_bis_down, p3_bis_down, p4_bis_down, sens_bis_down] = sigmoidRegression(clean_bis_down,'dw');
 idx = find(sens_osc_up < 20);
 %% Plotting
+
 ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(avg_down_bis,abs(sens_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(avg_down_osc,abs(sens_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(avg_down_bis,abs(p4_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(avg_down_osc,abs(p4_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t'); ylabel('Sensitivity');
 xlim([-0.08 0.08])
-ylim([1 10e5])
+ylim([1e0 1e2])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_bis_down)), 60, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_osc_down)), 1, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 6])
+ylim([0 2])
 axis off
 
 ax2 = axes('Position',[0.56 0.3 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(avg_up_bis,abs(sens_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(avg_up_osc,abs(sens_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(avg_up_bis,abs(p4_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(avg_up_osc,abs(p4_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('<\xi>_t');
 xlim([-0.08 0.08])
-ylim([1 10e5])
+ylim([1e0 1e2])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up)), 20, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_bis_up)), 50, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up)), 15, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(p4_osc_up)), 2, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 6])
+ylim([0 2])
 axis off
 
 % 
@@ -178,14 +179,9 @@ axis off
 % xlabel('Duration (AU)'); ylabel('p4_{DOWN}');
 % set(ax3,'FontSize',9,'Box','on','LineWidth',1.5,'FontName','Arial','xscale','log','XMinorTick','off')
 % 
-%%
-
-
-
-
 
 %% EXPORT
 % 
 cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
+exportgraphics(gcf,'sup_p4.pdf','Resolution',300,'BackgroundColor','none')
 
