@@ -14,25 +14,30 @@ cd '/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/code
 dur = 10; 
 
 % UPs
-[clean_osc_up,idx_osc_up] = clearCases(post_up_osc, size(post_up_osc) , dur);
-avg_up_osc = avg_up_osc(idx_osc_up);
+post_up_osc_high = post_up_osc;
+post_up_bis_high = post_up_bis;
+post_down_osc_high = post_down_osc;
+post_down_bis_high = post_down_bis;
 
-[clean_bis_up,idx_bis_up] = clearCases(post_up_bis, size(post_up_bis) , dur);
-avg_up_bis = avg_up_bis(idx_bis_up);
+[clean_osc_up,idx_osc_up_high] = clearCases(post_up_osc, size(post_up_osc) , dur);
+avg_up_osc = avg_up_osc(idx_osc_up_high);
+
+[clean_bis_up,idx_bis_up_high] = clearCases(post_up_bis, size(post_up_bis) , dur);
+avg_up_bis = avg_up_bis(idx_bis_up_high);
 
 % Downs
-[clean_osc_down,idx_osc_down] = clearCases(post_down_osc, size(post_down_osc) , dur);
-avg_down_osc = avg_down_osc(idx_osc_down);
+[clean_osc_down,idx_osc_down_high] = clearCases(post_down_osc, size(post_down_osc) , dur);
+avg_down_osc = avg_down_osc(idx_osc_down_high);
 
-[clean_bis_down,idx_bis_down] = clearCases(post_down_bis, size(post_down_bis) , dur);
-avg_down_bis = avg_down_bis(idx_bis_down);
+[clean_bis_down,idx_bis_down_high] = clearCases(post_down_bis, size(post_down_bis) , dur);
+avg_down_bis = avg_down_bis(idx_bis_down_high);
 
 
 % Generate p1, p2, p3, p4 and sensitivity values.
-[p1_osc_up, p2_osc_up, p3_osc_up, p4_osc_up, sens_osc_up] = sigmoidRegression(clean_osc_up,'up');
-[p1_bis_up, p2_bis_up, p3_bis_up, p4_bis_up, sens_bis_up] = sigmoidRegression(clean_bis_up,'up');
-[p1_osc_down, p2_osc_down, p3_osc_down, p4_osc_down, sens_osc_down] = sigmoidRegression(clean_osc_down,'dw');
-[p1_bis_down, p2_bis_down, p3_bis_down, p4_bis_down, sens_bis_down] = sigmoidRegression(clean_bis_down,'dw');
+[p1_osc_up, p2_osc_up, p3_osc_up, p4_osc_up, sens_osc_up_high] = sigmoidRegression(clean_osc_up,'up');
+[p1_bis_up, p2_bis_up, p3_bis_up, p4_bis_up, sens_bis_up_high] = sigmoidRegression(clean_bis_up,'up');
+[p1_osc_down, p2_osc_down, p3_osc_down, p4_osc_down, sens_osc_down_high] = sigmoidRegression(clean_osc_down,'dw');
+[p1_bis_down, p2_bis_down, p3_bis_down, p4_bis_down, sens_bis_down_high] = sigmoidRegression(clean_bis_down,'dw');
 
 %% Plotting
 f = figure; 
@@ -43,41 +48,41 @@ MarkerSize = 10;
 
 ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(post_down_bis(idx_bis_down,11),abs(sens_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down,11),abs(sens_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_down_bis_high(idx_bis_down_high,11),abs(sens_bis_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_down_osc_high(idx_osc_down_high,11),abs(sens_osc_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)'); ylabel('Sensitivity');
-xlim([1e1 500])
-ylim([1e0 1e4])
+xlim([1e1 2000])
+ylim([1e0 1e6])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale' ,'log', 'YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_down_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_down_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 4])
+ylim([0 6])
 axis off
 
 ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(post_up_bis(idx_bis_up,11),abs(sens_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up,11),abs(sens_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_up_bis_high(idx_bis_up_high,11),abs(sens_bis_up_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_up_osc_high(idx_osc_up_high,11),abs(sens_osc_up_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)');
-xlim([1e1 500])
-ylim([1e0 1e4])
+xlim([1e1 2000])
+ylim([1e0 1e6])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log', 'YMinorTick','off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_up_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up)), 20, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_up_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([0 4])
+ylim([0 6])
 axis off
 % tmp = NaN(size(sens_osc_down,1),2);
 % tmp(1:length(sens_bis_down),1) = log(abs(sens_bis_down)); tmp(1:length(sens_osc_down),2) = log(abs(sens_osc_down)); 
@@ -97,46 +102,51 @@ end
 
 cd '/Users/martinesparzaiaizzo/Desktop/UPF 19-20/2o trimestre/Practicas CBC/codeTower'
 
+post_up_osc_low = post_up_osc;
+post_up_bis_low = post_up_bis;
+post_down_osc_low = post_down_osc;
+post_down_bis_low = post_down_bis;
+
 % clear all
 dur = 10; 
 
 % UPs
-[clean_osc_up,idx_osc_up] = clearCases(post_up_osc, size(post_up_osc) , dur);
-avg_up_osc = avg_up_osc(idx_osc_up);
+[clean_osc_up,idx_osc_up_low] = clearCases(post_up_osc, size(post_up_osc) , dur);
+avg_up_osc = avg_up_osc(idx_osc_up_low);
 
-[clean_bis_up,idx_bis_up] = clearCases(post_up_bis, size(post_up_bis) , dur);
-avg_up_bis = avg_up_bis(idx_bis_up);
+[clean_bis_up,idx_bis_up_low] = clearCases(post_up_bis, size(post_up_bis) , dur);
+avg_up_bis = avg_up_bis(idx_bis_up_low);
 
 % Downs
-[clean_osc_down,idx_osc_down] = clearCases(post_down_osc, size(post_down_osc) , dur);
-avg_down_osc = avg_down_osc(idx_osc_down);
+[clean_osc_down,idx_osc_down_low] = clearCases(post_down_osc, size(post_down_osc) , dur);
+avg_down_osc = avg_down_osc(idx_osc_down_low);
 
-[clean_bis_down,idx_bis_down] = clearCases(post_down_bis, size(post_down_bis) , dur);
-avg_down_bis = avg_down_bis(idx_bis_down);
+[clean_bis_down,idx_bis_down_low] = clearCases(post_down_bis, size(post_down_bis) , dur);
+avg_down_bis = avg_down_bis(idx_bis_down_low);
 
 
 % Generate p1, p2, p3, p4 and sensitivity values.
-[p1_osc_up, p2_osc_up, p3_osc_up, p4_osc_up, sens_osc_up] = sigmoidRegression(clean_osc_up,'up');
-[p1_bis_up, p2_bis_up, p3_bis_up, p4_bis_up, sens_bis_up] = sigmoidRegression(clean_bis_up,'up');
-[p1_osc_down, p2_osc_down, p3_osc_down, p4_osc_down, sens_osc_down] = sigmoidRegression(clean_osc_down,'dw');
-[p1_bis_down, p2_bis_down, p3_bis_down, p4_bis_down, sens_bis_down] = sigmoidRegression(clean_bis_down,'dw');
-idx = find(sens_osc_up < 20);
+[p1_osc_up, p2_osc_up, p3_osc_up, p4_osc_up, sens_osc_up_low] = sigmoidRegression(clean_osc_up,'up');
+[p1_bis_up, p2_bis_up, p3_bis_up, p4_bis_up, sens_bis_up_low] = sigmoidRegression(clean_bis_up,'up');
+[p1_osc_down, p2_osc_down, p3_osc_down, p4_osc_down, sens_osc_down_low] = sigmoidRegression(clean_osc_down,'dw');
+[p1_bis_down, p2_bis_down, p3_bis_down, p4_bis_down, sens_bis_down_low] = sigmoidRegression(clean_bis_down,'dw');
+
 %% Plotting
 
 ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(post_down_bis(idx_bis_down,11),abs(sens_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down,11),abs(sens_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('<\xi>_t'); ylabel('Sensitivity');
-%xlim([-0.08 0.08])
+plot(post_down_bis_low(idx_bis_down_low,11),abs(sens_bis_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_down_osc_low(idx_osc_down_low,11),abs(sens_osc_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+xlabel('Duration (AU)'); ylabel('Sensitivity');
+xlim([1e1 2000])
 ylim([1e0 1e6])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_down_low)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_down_low)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -144,19 +154,19 @@ axis off
 
 ax2 = axes('Position',[0.56 0.3 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(post_up_bis(idx_bis_up,11),abs(sens_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up,11),abs(sens_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('<\xi>_t');
-%xlim([-0.08 0.08])
+plot(post_up_bis_low(idx_bis_up_low,11),abs(sens_bis_up_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_up_osc_low(idx_osc_up_low,11),abs(sens_osc_up_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+xlabel('Duration (AU)');
+xlim([1e1 2000])
 ylim([1e0 1e6])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log', 'YMinorTick','off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up)), 20, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_up_low)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up)), 20, 'Normalization', 'probability', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_up_low)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -183,19 +193,19 @@ axis off
 %% Anova
 
 % Define variables
-y = [sigma_high.post_up_bis; sigma_high.post_down_bis;...
-    sigma_high.post_up_osc; sigma_high.post_down_osc;...
-    sigma_low.post_up_bis(:,11); sigma_low.post_down_bis(:,11);...
-    sigma_low.post_up_osc(:,11); sigma_low.post_down_osc(:,11)];
+y = [sens_bis_up_high; sens_bis_down_high;...
+    sens_osc_up_high; sens_osc_down_high;...
+    sens_bis_up_low; sens_bis_down_low;...
+    sens_osc_up_low; sens_osc_down_low];
 
-g1 = [repmat({'bis'}, 600,1); repmat({'osc'}, 600,1);...
-    repmat({'bis'}, 600,1); repmat({'osc'}, 600,1)];
+g1 = [repmat({'bis'}, 420,1); repmat({'osc'}, 461,1);...
+    repmat({'bis'}, 600,1); repmat({'osc'}, 583,1)];
 
-g2 = [repmat({'high noise'}, 1200,1); repmat({'low noise'}, 1200,1)];
-g3 = [repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
-    repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
-    repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
-    repmat({'up'}, 300,1); repmat({'down'}, 300,1)];
+g2 = [repmat({'high noise'}, 881,1); repmat({'low noise'}, 1183,1)];
+% g3 = [repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+%     repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+%     repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+%     repmat({'up'}, 300,1); repmat({'down'}, 300,1)];
 
 % Run anova
 [~, ~, stats] = anovan(y,{g1 g2},'model','interaction','varnames',{'g1','g2'});
@@ -210,5 +220,5 @@ tbl.("Group B")=gnames(tbl.("Group B"));
 %% EXPORT
 % 
 cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'sup_sens_duration.pdf','Resolution',300,'BackgroundColor','none')
+exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
 

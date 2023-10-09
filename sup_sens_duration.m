@@ -51,10 +51,10 @@ ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down_high)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_down_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down_high)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_down_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -71,10 +71,10 @@ set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up_high)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_up_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up_high)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_up_high)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -125,10 +125,10 @@ ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_down_low)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_down_low)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_down_low)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_down_low)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -145,10 +145,10 @@ set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscal
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(sens_bis_up_low)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_bis_up_low)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(sens_osc_up_low)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(log10(abs(sens_osc_up_low)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 6])
@@ -177,5 +177,5 @@ axis off
 %% EXPORT
 % 
 cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
+exportgraphics(gcf,'sup_sens_duration.pdf','Resolution',300,'BackgroundColor','none')
 
