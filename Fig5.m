@@ -112,10 +112,10 @@ yticks([1 10 100 1000 10000])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(sigma_high.post_down_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_high.post_down_bis), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(sigma_high.post_down_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_high.post_down_osc), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 4])
@@ -135,10 +135,10 @@ yticks([1 10 100 1000 10000])
 set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(sigma_high.post_up_bis), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_high.post_up_bis), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(sigma_high.post_up_osc), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_high.post_up_osc), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 4])
@@ -158,10 +158,10 @@ yticks([1 10 100 1000 10000])
 set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax3_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax3_1.PositionConstraint = 'innerposition';
-h = histogram(log10(sigma_low.post_down_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_low.post_down_bis(:,11)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(sigma_low.post_down_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_low.post_down_osc(:,11)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 4])
@@ -180,10 +180,10 @@ yticks([1 10 100 1000 10000])
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
 ax4_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax4_1.PositionConstraint = 'innerposition';
-h = histogram(log10(sigma_low.post_up_bis(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_low.post_up_bis(:,11)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(sigma_low.post_up_osc(:,11)), 15, 'Normalization', 'pdf', 'DisplayStyle', 'bar',...
+h = histogram(log10(sigma_low.post_up_osc(:,11)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 ylim([0 4])
@@ -228,7 +228,38 @@ exportgraphics(gcf,'fig5.pdf','Resolution',300,'BackgroundColor','none')
 % sigma_low.p_up = vartestn([log(sigma_low.post_up_bis(:,11)), log(sigma_low.post_up_osc(:,11))],'TestType','LeveneAbsolute');
 % 
 
+%% Anova
 
+% Define variables
+y = [sigma_high.post_up_bis; sigma_high.post_down_bis;...
+    sigma_high.post_up_osc; sigma_high.post_down_osc;...
+    sigma_low.post_up_bis(:,11); sigma_low.post_down_bis(:,11);...
+    sigma_low.post_up_osc(:,11); sigma_low.post_down_osc(:,11)];
 
+% y = [sigma_high.post_up_bis - mean(sigma_high.post_up_bis); 
+%     sigma_high.post_down_bis - mean(sigma_high.post_down_bis);...
+%     sigma_high.post_up_osc - mean(sigma_high.post_up_osc); 
+%     sigma_high.post_down_osc - mean(sigma_high.post_down_osc);...
+%     sigma_low.post_up_bis(:,11) - mean(sigma_low.post_up_bis(:,11)); 
+%     sigma_low.post_down_bis(:,11) - mean(sigma_low.post_down_bis(:,11));...
+%     sigma_low.post_up_osc(:,11) - mean(sigma_low.post_up_osc(:,11)); 
+%     sigma_low.post_down_osc(:,11) - mean(sigma_low.post_down_osc(:,11))];
 
+g1 = [repmat({'bis'}, 600,1); repmat({'osc'}, 600,1);...
+    repmat({'bis'}, 600,1); repmat({'osc'}, 600,1)];
 
+g2 = [repmat({'high noise'}, 1200,1); repmat({'low noise'}, 1200,1)];
+g3 = [repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+    repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+    repmat({'up'}, 300,1); repmat({'down'}, 300,1);...
+    repmat({'up'}, 300,1); repmat({'down'}, 300,1)];
+
+% Run anova
+[~, ~, stats] = anovan(y,{g1 g2},'model','interaction','varnames',{'g1','g2'});
+
+% Run multcompare
+[results,~,~,gnames] = multcompare(stats,"Dimension",[1 2]);
+tbl = array2table(results,"VariableNames", ...
+    ["Group A","Group B","Lower Limit","A-B","Upper Limit","P-value"]);
+tbl.("Group A")=gnames(tbl.("Group A"));
+tbl.("Group B")=gnames(tbl.("Group B"))
