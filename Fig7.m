@@ -219,6 +219,6 @@ tbl.("Group B")=gnames(tbl.("Group B"));
 
 %% EXPORT
 % 
-cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
+% cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
+% exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
 
