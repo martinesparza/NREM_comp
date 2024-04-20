@@ -37,7 +37,7 @@ avg_down_bis_high = avg_down_bis(idx_bis_down);
 %% Plotting
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75);
+set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,1)+50 17 20]*1.75);
 fontSize = 16;
 MarkerSize = 10;
 
@@ -45,7 +45,7 @@ ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(avg_down_bis_high,abs(sens_bis_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(avg_down_osc_high,abs(sens_osc_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('<\xi>_t'); ylabel('Sensitivity');
+xlabel('<\xi>_t'); ylabel('$S$', 'Interpreter', 'latex');
 xlim([-0.8 0.8])
 ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
@@ -119,7 +119,7 @@ ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(avg_down_bis_low,abs(sens_bis_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(avg_down_osc_low,abs(sens_osc_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('<\xi>_t'); ylabel('Sensitivity');
+xlabel('<\xi>_t'); ylabel('$S$', 'Interpreter', 'latex');
 xlim([-0.08 0.08])
 ylim([1 10e5])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','YMinorTick','off')
