@@ -81,7 +81,7 @@ r_up_50 = zeros(1, duration);
 r_up_neg50 = zeros(1, duration);
 
 post_up = zeros(1, 21);
-seed = 210; %20, 150
+seed = 20; %20, 150
 for freq = 1:21
     fprintf('Current freq: %i\n', freq)
         
@@ -304,6 +304,7 @@ plot(f2, post_down, 'o'); hold on; plot([-100:0.1:100], fit_down);
 
 f = figure; 
 mp = get(0, 'MonitorPositions');
+% set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75); %% two monitors
 set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,2)+50 17 20]*1.75);
 fontSize = 16;
 LineW = 2.5; 
@@ -312,7 +313,7 @@ stimuli = zeros(1,duration/dt+1); % Stimuli
 
 
 % A1
-ax1 = axes('Position',[0.11 0.89 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.86 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 plot(t,r_up_neg50,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,stim_up_neg50,'LineWidth',LineW,'Color','#DAA520')
@@ -325,7 +326,7 @@ ylabel('{\it r(t) / \color[rgb]{.85 .647 .125}s(t)}')
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 % A2
-ax1 = axes('Position',[0.11 0.795 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.73 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 plot(t,r_up_0,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,stimuli,'LineWidth',LineW,'Color','#DAA520')
@@ -338,7 +339,7 @@ ylabel('{\it r(t) / \color[rgb]{.85 .647 .125}s(t)}')
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 % A3
-ax1 = axes('Position',[0.11 0.7 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.6 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 plot(t,r_up_50,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,stim_up_50,'LineWidth',LineW,'Color','#DAA520')
@@ -351,7 +352,7 @@ ylabel('{\it r(t) / \color[rgb]{.85 .647 .125}s(t)}')
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 % A4
-ax3 = axes('Position',[0.575 0.7 0.35 0.27]);
+ax3 = axes('Position',[0.575 0.6 0.35 0.355]);
 ax3.PositionConstraint = 'innerposition';
 plot([-100:10:100],post_up,'.','MarkerSize',45,'Color','#027EDC','LineWidth',1); hold on; 
 plot([-100:0.1:100],fit_up, 'Color', 'k', 'LineWidth', 2)
@@ -362,7 +363,7 @@ title(sprintf('Sensitivity: %.3f', sens_up))
 set(ax3,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 %B1
-ax1 = axes('Position',[0.11 0.515 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.38 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 % plot(t,r_down_neg50,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,r_up_high_neg50,'LineWidth',LineW,'Color','k'); hold on; 
@@ -377,7 +378,7 @@ ylabel('{\it r(t) / \color[rgb]{.85 .647 .125}s(t)}')
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 % B2
-ax1 = axes('Position',[0.11 0.42 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.25 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 % plot(t,r_down_0,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,r_up_high_0,'LineWidth',LineW,'Color','k'); hold on; 
@@ -391,7 +392,7 @@ ylabel('{\it r(t) / \color[rgb]{.85 .647 .125}s(t)}')
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 % B3
-ax1 = axes('Position',[0.11 0.325 0.375 0.08]);
+ax1 = axes('Position',[0.11 0.125 0.375 0.1]);
 ax1.PositionConstraint = 'innerposition';
 % plot(t,r_down_50,'LineWidth',LineW,'Color','k'); hold on; 
 plot(t,r_up_high_50,'LineWidth',LineW,'Color','k'); hold on; 
@@ -407,7 +408,7 @@ set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 
 % B4
-ax4 = axes('Position',[0.575 0.325 0.35 0.27]);
+ax4 = axes('Position',[0.575 0.125 0.35 0.355]);
 ax4.PositionConstraint = 'innerposition';
 % plot([-100:10:100],post_down,'.','MarkerSize',45,'Color','#027EDC','LineWidth',1); hold on; 
 plot([-100:10:100],post_up_high,'.','MarkerSize',45,'Color','#027EDC','LineWidth',1); hold on; 
@@ -418,7 +419,7 @@ ylim([0 35])
 %yticklabels({'0','5','10','15','20'})
 ylabel('Duration (AU)')
 xlabel('Frequency (Hz)')
-title(sprintf('Sensitivity: %.3f', sens_up_high))
+title(sprintf('S: %.3f', sens_up_high))
 set(ax4,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial')
 
 %% Plotting

@@ -37,7 +37,8 @@ avg_down_bis = avg_down_bis(idx_bis_down);
 %% Plotting
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75);
+% set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75); %% For second monitor
+set(f,'units','centimeters','Position',[mp(1,1) mp(1,1) 17 20]*1.75); %% For second monitor
 fontSize = 16;
 MarkerSize = 10;
 
@@ -182,6 +183,6 @@ axis off
 
 %% EXPORT
 % 
-cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-exportgraphics(gcf,'sup_p4.pdf','Resolution',300,'BackgroundColor','none')
-
+% cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
+% exportgraphics(gcf,'sup_p4.pdf','Resolution',300,'BackgroundColor','none')
+% 

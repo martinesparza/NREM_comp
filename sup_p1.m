@@ -37,14 +37,17 @@ avg_down_bis = avg_down_bis(idx_bis_down);
 %% Plotting
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75);
+set(f,'units','centimeters','Position',[mp(end,1)+50 mp(end,1)+50 17 20]*1.75);
 fontSize = 16;
 MarkerSize = 10;
+
+x_dashed = [0:1:10000]; y_dashed = x_dashed;
 
 ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis(idx_bis_down, 11),abs(p1_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down, 11),abs(p1_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_down_osc(idx_osc_down, 11),abs(p1_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8'); hold on;
+plot(x_dashed, y_dashed, 'k--', 'LineWidth',2.0);
 xlabel('Duration'); ylabel('p_1');
 xlim([1e1 2000])
 ylim([1e1 1e4])
@@ -63,7 +66,8 @@ axis off
 ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
 plot(post_up_bis(idx_bis_up, 11),abs(p1_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up, 11),abs(p1_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_up_osc(idx_osc_up, 11),abs(p1_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8'); hold on;
+plot(x_dashed, y_dashed, 'k--', 'LineWidth',2.0);
 xlabel('Duration');
 xlim([1e1 2000])
 ylim([1e1 1e4])
@@ -126,7 +130,8 @@ idx = find(sens_osc_up < 20);
 ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis(idx_bis_down, 11),abs(p1_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down, 11),abs(p1_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_down_osc(idx_osc_down, 11),abs(p1_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8'); hold on;
+plot(x_dashed, y_dashed, 'k--', 'LineWidth',2.0);
 xlabel('Duration'); ylabel('p_1');
 xlim([1e1 2000])
 ylim([1e1 1e4])
@@ -145,7 +150,8 @@ axis off
 ax2 = axes('Position',[0.56 0.3 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
 plot(post_up_bis(idx_bis_up, 11),abs(p1_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up, 11),abs(p1_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_up_osc(idx_osc_up, 11),abs(p1_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8'); hold on;
+plot(x_dashed, y_dashed, 'k--', 'LineWidth',2.0);
 xlabel('Duration');
 xlim([1e1 2000])
 ylim([1e1 1e4])

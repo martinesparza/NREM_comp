@@ -42,7 +42,8 @@ avg_down_bis = avg_down_bis(idx_bis_down_high);
 %% Plotting
 f = figure; 
 mp = get(0, 'MonitorPositions');
-set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75);
+% set(f,'units','centimeters','Position',[mp(2,1)+50 mp(2,1)+50 17 20]*1.75); %% Two monitor
+set(f,'units','centimeters','Position',[mp(1,1)+50 mp(1,1)+50 17 20]*1.75); %% Two monitor
 fontSize = 16;
 MarkerSize = 10;
 
@@ -50,7 +51,7 @@ ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis_high(idx_bis_down_high,11),abs(sens_bis_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(post_down_osc_high(idx_osc_down_high,11),abs(sens_osc_down_high),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('Duration (AU)'); ylabel('Sensitivity');
+xlabel('Duration (AU)'); ylabel('$S$', 'Interpreter', 'latex');
 xlim([1e1 2000])
 ylim([1e0 1e6])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale' ,'log', 'YMinorTick','off')
@@ -137,7 +138,7 @@ ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis_low(idx_bis_down_low,11),abs(sens_bis_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(post_down_osc_low(idx_osc_down_low,11),abs(sens_osc_down_low),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('Duration (AU)'); ylabel('Sensitivity');
+xlabel('Duration (AU)'); ylabel('$S$', 'Interpreter', 'latex');
 xlim([1e1 2000])
 ylim([1e0 1e6])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale','log','YMinorTick','off')
@@ -219,6 +220,6 @@ tbl.("Group B")=gnames(tbl.("Group B"));
 
 %% EXPORT
 % 
-% cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-% exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
+cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
+exportgraphics(gcf,'fig7.pdf','Resolution',300,'BackgroundColor','none')
 
