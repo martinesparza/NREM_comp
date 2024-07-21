@@ -47,7 +47,7 @@ xlim([0 700])
 ylim([-0.25 1.25])
 xticks([100 600]); xticklabels({''})
 yticks([0 1]); yticklabels({'0','5'})
-ylabel('Hz')
+ylabel('\lambda')
 ax0.YAxis.TickLength = [0 0];
 set(ax0,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 
@@ -144,6 +144,7 @@ set(ax2_2,'FontSize',fontSize,'Box','off','LineWidth',1.5,'FontName','Arial')
 
 %% Save figure ––––––– Uncomment and edit to save to personalised location
 % 
-% cd '/Volumes/GoogleDrive-101271366273470520077/My Drive/PaperBelen/Figures/Temp figures'
-% exportgraphics(gcf,'fig2.pdf','Resolution',300,'BackgroundColor','w')
 
+str = sprintf('/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures/fig2.pdf');
+set(f,'Renderer','Painter')
+exportgraphics(gcf,str,'Resolution',300,'BackgroundColor','none')

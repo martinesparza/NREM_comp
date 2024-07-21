@@ -46,7 +46,7 @@ ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis(idx_bis_down, 11),abs(p4_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(post_down_osc(idx_osc_down, 11),abs(p4_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('Duration (AU)'); ylabel('p_4');
+xlabel('Duration (AU)'); ylabel('p_4 (AU)');
 xlim([1e1 2000])
 ylim([1e0 1e2])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale','log','YMinorTick','off', 'XMinorTick','off')
@@ -128,7 +128,7 @@ ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
 plot(post_down_bis(idx_bis_down, 11),abs(p4_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
 plot(post_down_osc(idx_bis_down, 11),abs(p4_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
-xlabel('Duration (AU)'); ylabel('p_4');
+xlabel('Duration (AU)'); ylabel('p_4 (AU)');
 xlim([1e1 2000])
 ylim([1e0 1e2])
 set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale','log','YMinorTick','off','XMinorTick','off')
@@ -183,6 +183,7 @@ axis off
 
 %% EXPORT
 % 
-% cd '/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures'
-% exportgraphics(gcf,'sup_p4.pdf','Resolution',300,'BackgroundColor','none')
-% 
+
+str = sprintf('/Users/martinesparzaiaizzo/Library/CloudStorage/GoogleDrive-martineladio.esparza01@alumni.upf.edu/My Drive/PaperBelen/Figures/Temp figures/sup_p4.pdf');
+set(f,'Renderer','Painter')
+exportgraphics(gcf,str,'Resolution',300,'BackgroundColor','none')

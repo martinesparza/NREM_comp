@@ -43,41 +43,41 @@ MarkerSize = 10;
 
 ax1 = axes('Position',[0.1 0.67 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(post_down_bis(idx_bis_down, 11),abs(p3_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down, 11),abs(p3_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_down_bis(idx_bis_down, 11),p3_bis_down,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_down_osc(idx_osc_down, 11),p3_osc_down,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)'); ylabel('p_3');
 xlim([1e1 2000])
-ylim([1e-1 1e3])
-set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log','YMinorTick','off', 'XMinorTick', 'off')
+ylim([-100 100])
+set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','xscale', 'log','YMinorTick','off', 'XMinorTick', 'off')
 ax1_1 = axes('Position',[0.42 0.67 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(p3_bis_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_bis_down, 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(p3_osc_down)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_osc_down, 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([-1 3])
+ylim([-100 100])
 axis off
 
 ax2 = axes('Position',[0.56 0.67 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(post_up_bis(idx_bis_up, 11),abs(p3_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up, 11),abs(p3_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_up_bis(idx_bis_up, 11),p3_bis_up,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_up_osc(idx_osc_up, 11),p3_osc_up,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)');
 xlim([1e1 2000])
-ylim([1e-1 1e3])
-set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log','YMinorTick','off', 'XMinorTick', 'off')
+ylim([-100 100])
+set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','xscale', 'log','YMinorTick','off', 'XMinorTick', 'off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.67 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(p3_bis_up)), 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_bis_up, 20, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(p3_osc_up)), 40, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_osc_up, 40, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([-1 3])
+ylim([-100 100])
 axis off
 % tmp = NaN(size(sens_osc_down,1),2);
 % tmp(1:length(sens_bis_down),1) = log(abs(sens_bis_down)); tmp(1:length(sens_osc_down),2) = log(abs(sens_osc_down)); 
@@ -125,41 +125,41 @@ idx = find(sens_osc_up < 20);
 
 ax1 = axes('Position',[0.1 0.3 0.32 0.25]);
 ax1.PositionConstraint = 'innerposition';
-plot(post_down_bis(idx_bis_down, 11),abs(p3_bis_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_down_osc(idx_osc_down, 11),abs(p3_osc_down),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_down_bis(idx_bis_down, 11),p3_bis_down,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_down_osc(idx_osc_down, 11),p3_osc_down,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)'); ylabel('p_3');
 xlim([1e1 2000])
-ylim([1e-1 1e3])
-set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log', 'YMinorTick','off', 'XMinorTick', 'off')
+ylim([-100 100])
+set(ax1,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','xscale', 'log', 'YMinorTick','off', 'XMinorTick', 'off')
 ax1_1 = axes('Position',[0.42 0.3 0.1 0.25]);
 ax1_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(p3_bis_down)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_bis_down, 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(p3_osc_down)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_osc_down, 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
 axis off
-ylim([-1 3])
+ylim([-100 100])
 
 ax2 = axes('Position',[0.56 0.3 0.32 0.25]);
 ax2.PositionConstraint = 'innerposition';
-plot(post_up_bis(idx_bis_up, 11),abs(p3_bis_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
-plot(post_up_osc(idx_osc_up, 11),abs(p3_osc_up),'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
+plot(post_up_bis(idx_bis_up, 11),p3_bis_up,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#027EDC'); hold on;
+plot(post_up_osc(idx_osc_up, 11),p3_osc_up,'o','LineWidth',1.0,'MarkerSize',MarkerSize,'Color','#FF44C8');
 xlabel('Duration (AU)');
 xlim([1e1 2000])
-ylim([1e-1 1e3])
-set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','yscale','log','xscale', 'log', 'YMinorTick','off', 'XMinorTick', 'off')
+ylim([-100 100])
+set(ax2,'FontSize',fontSize,'Box','on','LineWidth',1.5,'FontName','Arial','xscale', 'log', 'YMinorTick','off', 'XMinorTick', 'off')
 % yticklabels({''})
 ax2_1 = axes('Position',[0.88 0.3 0.1 0.25]);
 ax2_1.PositionConstraint = 'innerposition';
-h = histogram(log10(abs(p3_bis_up)), 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_bis_up, 15, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#027EDC', 'EdgeAlpha', 0, 'FaceAlpha', 0.5); hold on
 h.Orientation = 'horizontal';
-h = histogram(log10(abs(p3_osc_up)), 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
+h = histogram(p3_osc_up, 10, 'Normalization', 'count', 'DisplayStyle', 'bar',...
     'FaceColor', '#FF44C8', 'EdgeAlpha', 0, 'FaceAlpha', 0.5);
 h.Orientation = 'horizontal';
-ylim([-1 3])
+ylim([-100 100])
 axis off
 
 % 
